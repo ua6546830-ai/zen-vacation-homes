@@ -5,6 +5,7 @@ import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } 
 import { Textarea } from "@/components/ui/textarea";
 import { WhatsAppIcon } from "@/components/icons";
 import { business } from "@/functions/catalog";
+import { asset } from "@/lib/assets";
 import { whatsappLink } from "@/lib/format";
 import { Link, useRouter } from "@/lib/router";
 import { useCatalog } from "@/lib/catalog";
@@ -160,7 +161,7 @@ export function Zeno() {
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <button type="button" className={cn("fixed right-5 z-40 flex items-center gap-2 rounded-full border border-white/15 bg-(--site-fg) py-3 pr-5 pl-3 text-sm font-semibold text-(--site-bg) shadow-xl transition hover:-translate-y-0.5", path.startsWith("/homes/") ? "bottom-24 md:bottom-6" : "bottom-6")}>
-          <span className="grid size-8 place-items-center rounded-full bg-background"><img src="/brand/zen-logo.png" alt="" className="h-6 w-auto" /></span> Ask Zeno
+          <span className="grid size-8 place-items-center rounded-full bg-background"><img src={asset("/brand/zen-logo.png")} alt="" className="h-6 w-auto" /></span> Ask Zeno
         </button>
       </DialogTrigger>
       <DialogContent showCloseButton={false} className="inset-0 top-0 left-0 flex h-dvh max-h-dvh max-w-none translate-x-0 translate-y-0 flex-col gap-0 rounded-none border-0 p-0 sm:inset-auto sm:right-6 sm:bottom-6 sm:top-auto sm:left-auto sm:h-[min(620px,calc(100dvh-3rem))] sm:w-[400px] sm:max-w-[400px] sm:rounded-2xl sm:border">

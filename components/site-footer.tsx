@@ -1,6 +1,7 @@
 import { Mail } from "lucide-react";
 import { FacebookIcon, InstagramIcon, WhatsAppIcon, YoutubeIcon } from "@/components/icons";
 import { areas, business } from "@/functions/catalog";
+import { asset } from "@/lib/assets";
 import { emailLink, whatsappLink } from "@/lib/format";
 import { homeUrl } from "@/lib/listings";
 import { Link } from "@/lib/router";
@@ -17,7 +18,7 @@ export function SiteFooter({ className }: { className?: string }) {
     <footer className={cn("mt-24 bg-(--site-fg) text-(--site-bg)", className)}>
       <div className="shell grid gap-12 py-14 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1.2fr_1fr]">
         <div>
-          <img src="/brand/zen-logo-light.png" alt={business.name} width={277} height={249} className="h-16 w-auto" />
+          <img src={asset("/brand/zen-logo-light.png")} alt={business.name} width={277} height={249} className="h-16 w-auto" />
           <p className="mt-5 font-display text-2xl">{business.slogans[2]}</p>
           <p className="mt-2 max-w-xs text-sm text-(--site-bg)/75">
             {business.slogans[1]} Private homes for short stays across {business.city}, booked directly with your host.

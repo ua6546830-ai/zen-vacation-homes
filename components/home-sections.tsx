@@ -18,6 +18,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { WhatsAppIcon } from "@/components/icons";
 import { business, houseRules, reviews, type Listing } from "@/functions/catalog";
+import { asset } from "@/lib/assets";
 import { emailLink, whatsappLink } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
@@ -297,7 +298,7 @@ export function ClosingCta() {
   return (
     <section aria-labelledby="closing-title" className="relative isolate overflow-hidden rounded-3xl">
       <img
-        src="/listings/demo/04.png"
+        src={asset("/listings/demo/04.png")}
         alt=""
         loading="lazy"
         className="absolute inset-0 -z-10 size-full object-cover"

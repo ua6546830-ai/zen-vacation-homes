@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { WhatsAppIcon } from "@/components/icons";
 import { DesktopSearch, MobileSearch } from "@/components/search";
 import { business } from "@/functions/catalog";
+import { asset } from "@/lib/assets";
 import { whatsappLink } from "@/lib/format";
 import { categories, homeUrl, parseArea, parseCategory, parseSort } from "@/lib/listings";
 import { Link, useRouter } from "@/lib/router";
@@ -13,7 +14,7 @@ import { cn } from "@/lib/utils";
 export function BrandLink({ className }: { className?: string }) {
   return (
     <Link to="/" aria-label={business.name} className={cn("flex shrink-0 items-center gap-3 rounded-lg", className)}>
-      <img src="/brand/zen-logo.png" alt="" width={277} height={249} className="h-10 w-auto md:h-12" />
+      <img src={asset("/brand/zen-logo.png")} alt="" width={277} height={249} className="h-10 w-auto md:h-12" />
       <span className="hidden leading-tight xl:block">
         <span className="block font-display text-lg font-medium">{business.name}</span>
         <span className="block text-xs text-muted-foreground">{business.slogans[0]}</span>

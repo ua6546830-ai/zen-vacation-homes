@@ -189,6 +189,15 @@ Local chat endpoints exist, but real AI replies require the deployed Function wi
 
 ---
 
+## Live demo (static hosting)
+
+- **GitHub Pages:** https://ua6546830-ai.github.io/zen-vacation-homes/ — the complete browsing experience on the bundled demo catalog.
+- **Vercel:** [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/ua6546830-ai/zen-vacation-homes) — one click deploys `main` as a static site (`vercel.json` included).
+
+`npm run build` writes `public/catalog.json` (demo snapshot), and the app falls back to it when no API is reachable, so static hosts render every home. The admin panel and Zeno need the full Qoder Sites deployment below.
+
+---
+
 ## Deployment (Qoder Sites)
 
 1. Publish `dist` with `spa: true`.

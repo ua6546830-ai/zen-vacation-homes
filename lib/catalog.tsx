@@ -1,5 +1,6 @@
 import * as React from "react";
 import type { Listing } from "@/functions/catalog";
+import { asset } from "@/lib/assets";
 
 interface CatalogState {
   listings: Listing[];
@@ -49,7 +50,7 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
       if (!next) next = await read(`${import.meta.env.BASE_URL}catalog.json`);
       if (active.current !== controller) return;
       if (!next) throw new Error("catalog_invalid");
-      setListings(next);
+      setListings(next.map((listing) => ({ ...listing, photos: listing.photos.map((photo) => ({ ...photo, src: asset(photo.src) })) })));
       setStatus("ready");
     } catch {
       if (active.current !== controller || controller.signal.aborted) return;

@@ -21,6 +21,7 @@ import {
   AdminApiError, adminRequest, isAdminSlug, MAX_PHOTO_BYTES, PHOTO_MIME_TYPES,
   uploadPhoto, type AdminListing, type AdminPhoto, type AdminProperty,
 } from "@/lib/admin-api";
+import { asset } from "@/lib/assets";
 import { Link, useDocumentTitle, useRouter } from "@/lib/router";
 import { cn } from "@/lib/utils";
 
@@ -516,7 +517,7 @@ export function AdminPage() {
       <main className="min-h-screen bg-background px-4 py-8 text-foreground sm:px-8">
         <div className="mx-auto max-w-5xl">{backLink}</div>
         <div className="mx-auto mt-16 max-w-md rounded-2xl border bg-card p-6 shadow-sm sm:mt-24 sm:p-9">
-          <div className="mb-6 flex items-center gap-3"><img src="/brand/zen-logo.png" alt="Zen Vacation Homes" className="h-12 w-auto" /><div><p className="font-display text-xl">Zen Vacation Homes</p><p className="text-xs text-muted-foreground">Private property workspace</p></div></div>
+          <div className="mb-6 flex items-center gap-3"><img src={asset("/brand/zen-logo.png")} alt="Zen Vacation Homes" className="h-12 w-auto" /><div><p className="font-display text-xl">Zen Vacation Homes</p><p className="text-xs text-muted-foreground">Private property workspace</p></div></div>
           <div className="mb-5 flex size-12 items-center justify-center rounded-xl bg-primary/10 text-primary"><LockKeyhole className="size-6" aria-hidden /></div>
           <h1 className="font-display text-3xl">{session === "locked" ? "Setup required" : session === "checking" ? "Checking access" : session === "error" ? "Unable to check access" : "Welcome back"}</h1>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{session === "locked" ? "Administrator access is locked. Configure the private password in Site Settings to enable this workspace. There is no default credential or public signup." : "Manage your homes with the private password configured in Site Settings. This workspace is for authorized property administrators only."}</p>
@@ -537,7 +538,7 @@ export function AdminPage() {
     <main className="min-h-screen bg-background text-foreground">
       <header className="border-b bg-card">
         <div className="mx-auto flex max-w-[1440px] flex-wrap items-center justify-between gap-4 px-4 py-5 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3"><img src="/brand/zen-logo.png" alt="" className="h-11 w-auto" /><div><p className="font-display text-lg">Zen Vacation Homes</p><p className="flex items-center gap-1.5 text-xs text-muted-foreground"><LockKeyhole className="size-3" aria-hidden />Administrator workspace</p></div></div>
+          <div className="flex items-center gap-3"><img src={asset("/brand/zen-logo.png")} alt="" className="h-11 w-auto" /><div><p className="font-display text-lg">Zen Vacation Homes</p><p className="flex items-center gap-1.5 text-xs text-muted-foreground"><LockKeyhole className="size-3" aria-hidden />Administrator workspace</p></div></div>
           <div className="flex items-center gap-4">{backLink}<Button type="button" variant="outline" size="sm" onClick={() => requestAction({ kind: "logout" })} disabled={!!busy}><LogOut className="size-4" aria-hidden /><span>{busy === "logging-out" ? "Signing out…" : "Sign out"}</span></Button></div>
         </div>
       </header>
