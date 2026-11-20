@@ -1,0 +1,13 @@
+Copyright (c) 2026 Uzair Ahmad and Zen Vacation Homes. All rights reserved.
+
+This repository is published for portfolio review and demonstration only.
+
+No permission is granted to copy, modify, redistribute, sublicense or use
+this software, its design, its visual identity or its content, in whole or
+in part, for any commercial or non-commercial product without the prior
+written permission of the copyright holder.
+
+Third-party dependencies and the vendored stylesheet in `vendor/` remain
+under their respective licenses; see `PROVENANCE.md` and package metadata.
+
+For licensing enquiries: dr.uzair.m.ahmad@gmail.com

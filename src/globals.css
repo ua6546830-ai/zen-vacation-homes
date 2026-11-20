@@ -1,0 +1,205 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "../vendor/shadcn-tailwind-4.13.0.css";
+
+@utility scrollbar-thin {
+  scrollbar-width: thin;
+}
+
+@utility scrollbar-none {
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility scrollbar-gutter-stable {
+  scrollbar-gutter: stable;
+}
+
+/* Design parameters live here; the design workbench only overrides these variables temporarily. */
+:root {
+  color-scheme: light;
+  --site-bg: #fbf9f6;
+  --site-fg: #222222;
+  --site-accent: #8f672f;
+  --site-on-accent: #ffffff;
+  --site-surface: #f3eee6;
+  --site-muted: #6b6259;
+  --site-border: #e7e0d6;
+  --site-font: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --site-radius: 14px;
+  --site-space: 1;
+  --site-type: 1;
+  --site-motion: 1;
+
+  --zen-gold: #c4a06a;
+  --zen-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --whatsapp: #0f7a40;
+}
+
+:root {
+  --background: var(--site-bg);
+  --foreground: var(--site-fg);
+  --card: var(--site-bg);
+  --card-foreground: var(--site-fg);
+  --popover: var(--site-bg);
+  --popover-foreground: var(--site-fg);
+  --primary: var(--site-accent);
+  --primary-foreground: var(--site-on-accent);
+  --secondary: var(--site-surface);
+  --secondary-foreground: var(--site-fg);
+  --muted: var(--site-surface);
+  --muted-foreground: var(--site-muted);
+  --accent: var(--site-surface);
+  --accent-foreground: var(--site-fg);
+  --destructive: #c2410c;
+  --border: var(--site-border);
+  --input: color-mix(in oklab, var(--site-fg) 42%, var(--site-bg));
+  --ring: var(--site-accent);
+  --radius: var(--site-radius);
+  --chart-1: #8f672f;
+  --chart-2: #c4a06a;
+  --chart-3: #6b6259;
+  --chart-4: #2b2926;
+  --chart-5: #e7e0d6;
+  --sidebar: var(--site-surface);
+  --sidebar-foreground: var(--site-fg);
+  --sidebar-primary: var(--site-accent);
+  --sidebar-primary-foreground: var(--site-on-accent);
+  --sidebar-accent: var(--site-surface);
+  --sidebar-accent-foreground: var(--site-fg);
+  --sidebar-border: var(--site-border);
+  --sidebar-ring: var(--site-accent);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-gold: var(--zen-gold);
+  --color-whatsapp: var(--whatsapp);
+  --radius-sm: calc(var(--radius) - 6px);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 10px);
+  --font-sans: var(--site-font);
+  --font-display: var(--zen-display);
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+
+  --spacing: calc(0.25rem * var(--site-space));
+  --text-xs: calc(.75rem * var(--site-type));
+  --text-sm: calc(.875rem * var(--site-type));
+  --text-base: calc(1rem * var(--site-type));
+  --text-lg: calc(1.125rem * var(--site-type));
+  --text-xl: calc(1.25rem * var(--site-type));
+  --text-2xl: calc(1.5rem * var(--site-type));
+  --text-3xl: calc(1.875rem * var(--site-type));
+  --text-4xl: calc(2.25rem * var(--site-type));
+  --text-5xl: calc(3rem * var(--site-type));
+  --text-6xl: calc(3.75rem * var(--site-type));
+  --text-7xl: calc(4.5rem * var(--site-type));
+  --text-8xl: calc(6rem * var(--site-type));
+  --text-9xl: calc(8rem * var(--site-type));
+  --default-transition-duration: calc(180ms * var(--site-motion));
+  --animate-zen-rise: zen-rise calc(260ms * var(--site-motion)) cubic-bezier(.2, .8, .2, 1) both;
+
+  @keyframes zen-rise {
+    from {
+      opacity: 0;
+      transform: translateY(12px) scale(.98);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--site-font);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+@layer components {
+  .shell {
+    margin-inline: auto;
+    width: 100%;
+    max-width: 1440px;
+    padding-inline: calc(1.25rem * var(--site-space));
+  }
+  @media (width >= 48rem) {
+    .shell {
+      padding-inline: calc(2rem * var(--site-space));
+    }
+  }
+  @media (width >= 80rem) {
+    .shell {
+      padding-inline: calc(3rem * var(--site-space));
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-padding-top: calc(var(--header-h, 5rem) + 1rem);
+  }
+  button, a {
+    transition-duration: calc(180ms * var(--site-motion));
+  }
+  a:focus-visible,
+  button:focus-visible,
+  [tabindex]:focus-visible,
+  summary:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+  .font-display {
+    font-optical-sizing: auto;
+    letter-spacing: -0.01em;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Zen Vacation Homes — social preview</title>
+<style>
+  :root { --gold:#c9a46a; --cream:#f7f2e8; }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { background: #0b0f0d; }
+  .card {
+    position: relative; width: 1280px; height: 640px; overflow: hidden;
+    background: url("./hero.png") center 58% / cover no-repeat;
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif; color: var(--cream);
+  }
+  .card::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(90deg, rgba(9,13,11,.92) 0%, rgba(9,13,11,.66) 42%, rgba(9,13,11,.12) 74%, rgba(9,13,11,.3) 100%);
+  }
+  .inner { position: relative; z-index: 2; height: 100%; padding: 46px 56px; display: flex; flex-direction: column; }
+  .logo { align-self: flex-start; height: 96px; width: auto; flex: none; filter: drop-shadow(0 5px 14px rgba(0,0,0,.45)); }
+  .body { margin-top: auto; }
+  .eyebrow { font-size: 12.5px; letter-spacing: .36em; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+  h1 { font-family: Georgia, "Times New Roman", serif; font-weight: 500; font-size: 62px; line-height: 1.02; margin: 16px 0 14px; }
+  h1 em { font-style: italic; color: #e8d3ac; }
+  .lead { font-size: 16.5px; line-height: 1.5; color: rgba(247,242,232,.8); max-width: 540px; }
+  .footer { margin-top: 22px; font-size: 12.5px; color: rgba(247,242,232,.6); display: flex; gap: 8px; align-items: center; }
+  .footer b { color: var(--cream); font-weight: 600; }
+  .dot { color: var(--gold); }
+</style>
+</head>
+<body>
+  <section class="card" id="card">
+    <div class="inner">
+      <img class="logo" src="../../public/brand/zen-logo-light.png" alt="Zen Vacation Homes" />
+      <div class="body">
+        <p class="eyebrow">Karachi · Premium short stays</p>
+        <h1>Find your calm <em>in Karachi.</em></h1>
+        <p class="lead">Real homes, real photographs and Zeno — a private AI guide for every listing.</p>
+        <p class="footer"><b>Uzair Ahmad</b><span class="dot">·</span>Qoder · CEGA Buildathon<span class="dot">·</span>dr.uzair.m.ahmad@gmail.com</p>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Zen Vacation Homes — cover</title>
+<style>
+  :root { --gold:#c9a46a; --cream:#f7f2e8; --ink:#0e1512; }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { background: #0b0f0d; }
+  .cover {
+    position: relative; width: 1600px; height: 900px; overflow: hidden;
+    background: url("./hero.png") center 62% / cover no-repeat;
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif; color: var(--cream);
+  }
+  .cover::after {
+    content: ""; position: absolute; inset: 0;
+    background:
+      linear-gradient(90deg, rgba(9,13,11,.88) 0%, rgba(9,13,11,.62) 38%, rgba(9,13,11,.10) 68%, rgba(9,13,11,.28) 100%),
+      linear-gradient(0deg, rgba(9,13,11,.82) 0%, rgba(9,13,11,0) 34%);
+  }
+  .inner { position: relative; z-index: 2; height: 100%; padding: 58px 76px; display: flex; flex-direction: column; }
+  .logo { align-self: flex-start; height: 128px; width: auto; flex: none; filter: drop-shadow(0 6px 18px rgba(0,0,0,.45)); }
+  .body { margin-top: auto; max-width: 760px; }
+  .eyebrow { font-size: 15px; letter-spacing: .38em; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+  h1 { font-family: Georgia, "Times New Roman", serif; font-weight: 500; font-size: 92px; line-height: .98; margin: 22px 0 24px; text-wrap: balance; }
+  h1 em { font-style: italic; color: #e8d3ac; }
+  .lead { font-size: 21px; line-height: 1.5; color: rgba(247,242,232,.82); max-width: 620px; }
+  .meta { display: flex; gap: 10px; margin-top: 30px; }
+  .meta span { font-size: 13px; letter-spacing: .05em; padding: 9px 15px; border: 1px solid rgba(201,164,106,.45); border-radius: 999px; background: rgba(10,15,12,.35); backdrop-filter: blur(4px); }
+  .footer { margin-top: 34px; display: flex; align-items: center; justify-content: space-between; gap: 24px; font-size: 13.5px; color: rgba(247,242,232,.62); border-top: 1px solid rgba(247,242,232,.16); padding-top: 20px; }
+  .footer b { color: var(--cream); font-weight: 600; }
+  .dot { color: var(--gold); }
+</style>
+</head>
+<body>
+  <section class="cover" id="cover">
+    <div class="inner">
+      <img class="logo" src="../../public/brand/zen-logo-light.png" alt="Zen Vacation Homes" />
+      <div class="body">
+        <p class="eyebrow">Karachi · Premium short stays</p>
+        <h1>Find your calm<br /><em>in Karachi.</em></h1>
+        <p class="lead">Seven real homes across DHA, Gulshan and Johar — real photographs, honest house rules, and Zeno, a private AI guide that knows every listing.</p>
+        <div class="meta"><span>7 homes</span><span>DHA · Gulshan · Johar</span><span>WhatsApp booking</span><span>AI concierge</span></div>
+      </div>
+      <div class="footer">
+        <span>Designed &amp; built by <b>Uzair Ahmad</b> <span class="dot">·</span> dr.uzair.m.ahmad@gmail.com</span>
+        <span>Qoder <span class="dot">·</span> CEGA Buildathon</span>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
