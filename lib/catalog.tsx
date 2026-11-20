@@ -28,16 +28,28 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
     active.current?.abort();
     const controller = new AbortController();
     active.current = controller;
-    try {
-      const response = await fetch("/functions/v1/app/api/properties", {
-        credentials: "same-origin", cache: "no-store",
+    const read = async (url: string): Promise<Listing[] | null> => {
+      const response = await fetch(url, {
+        credentials: url.startsWith("/functions/") ? "same-origin" : "omit", cache: "no-store",
         signal: AbortSignal.any([controller.signal, AbortSignal.timeout(20000)]),
       });
-      if (!response.ok || !response.headers.get("content-type")?.includes("application/json")) throw new Error("catalog_unavailable");
+      if (!response.ok || !response.headers.get("content-type")?.includes("application/json")) return null;
       const value = await response.json();
-      if (!Array.isArray(value?.properties) || value.properties.length > 50 || !value.properties.every(validListing)) throw new Error("catalog_invalid");
+      if (!Array.isArray(value?.properties) || value.properties.length > 50 || !value.properties.every(validListing)) return null;
+      return value.properties as Listing[];
+    };
+    try {
+      let next: Listing[] | null = null;
+      try {
+        next = await read("/functions/v1/app/api/properties");
+      } catch {
+        next = null;
+      }
+      // Plain static hosting (Vercel, GitHub Pages) has no API: use the bundled demo snapshot.
+      if (!next) next = await read(`${import.meta.env.BASE_URL}catalog.json`);
       if (active.current !== controller) return;
-      setListings(value.properties);
+      if (!next) throw new Error("catalog_invalid");
+      setListings(next);
       setStatus("ready");
     } catch {
       if (active.current !== controller || controller.signal.aborted) return;

@@ -5,6 +5,7 @@ import react from "@vitejs/plugin-react";
 const proxy = { "/functions/v1/app": "http://127.0.0.1:8000", "/__local_upload": "http://127.0.0.1:8000" };
 
 export default defineConfig({
+  base: process.env.SITE_BASE || "/",
   plugins: [react()],
   resolve: { alias: { "@": fileURLToPath(new URL(".", import.meta.url)) } },
   server: { host: "127.0.0.1", proxy },

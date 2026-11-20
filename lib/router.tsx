@@ -10,7 +10,14 @@ type RouterValue = {
 
 const RouterContext = React.createContext<RouterValue | null>(null);
 
-const readLocation = () => ({ path: window.location.pathname, search: window.location.search });
+// Static hosts may serve the app under a sub-path (e.g. GitHub project pages).
+const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+const readLocation = () => {
+  let path = window.location.pathname;
+  if (BASE && (path === BASE || path.startsWith(`${BASE}/`))) path = path.slice(BASE.length) || "/";
+  return { path, search: window.location.search };
+};
 
 function scrollAfterNavigation(hash: string) {
   requestAnimationFrame(() => {
@@ -40,7 +47,7 @@ export function RouterProvider({ children }: { children: React.ReactNode }) {
     const next = url.pathname + url.search + url.hash;
     const current = window.location.pathname + window.location.search + window.location.hash;
     if (next !== current) {
-      window.history[options.replace ? "replaceState" : "pushState"](null, "", next);
+      window.history[options.replace ? "replaceState" : "pushState"](null, "", `${BASE}${url.pathname}${url.search}${url.hash}`);
     }
     setLocation(readLocation());
     if (options.scroll !== false) scrollAfterNavigation(url.hash);
@@ -70,7 +77,7 @@ export function Link({ to, replace, scroll, onClick, target, ...props }: LinkPro
   const { navigate } = useRouter();
   return (
     <a
-      href={to}
+      href={`${BASE}${to}`}
       target={target}
       onClick={(event) => {
         onClick?.(event);

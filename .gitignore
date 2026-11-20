@@ -10,3 +10,4 @@ dist/
 *.qoder.site
 *.zip
 functions/_qoder/
+public/catalog.json
