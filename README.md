@@ -19,6 +19,9 @@
 
 Zen Vacation Homes is a real hospitality business in Karachi with seven homes across DHA Phase VI, Gulshan-e-Iqbal and Gulistan-e-Johar. This repository is the complete platform behind it:
 
+https://zen-vacation-homes-1oqxsipmfn5.qoder.website/
+
+
 - **An Airbnb-grade guest experience** — photo-led browsing, filters, wishlist, full listing pages, house rules, guest reviews and neighbourhood context.
 - **Booking without a checkout** — guests prepare a WhatsApp message or email with the home, dates and group size. The host confirms availability and quotes the final rate directly. **No prices are shown anywhere**; nothing is invented.
 - **Zeno, an AI concierge** — a streaming assistant that answers only from the live catalog, recommends homes with links, explains policies, refuses to quote rates, and hands the guest to the host.
